@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jbohde/vite-apollo-mongo.git"
+    "url": "git+https://github.com:hculp/book-rebound.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jbohde/vite-apollo-mongo/issues"
+    "url": "git@github.com:hculp/book-rebound/issues"
   },
-  "homepage": "https://github.com/jbohde/vite-apollo-mongo#readme",
+  "homepage": "git@github.com:hculp/book-rebound#readme",
   "devDependencies": {
     "concurrently": "^8.2.0",
     "eslint": "^8.47.0",
