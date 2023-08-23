@@ -1,4 +1,4 @@
-html,
+ html,
 body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   min-height: 100vh;
@@ -75,3 +75,7 @@ button {
 .page-title {
   text-align: center;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
