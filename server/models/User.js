@@ -1,7 +1,7 @@
 /* eslint-disable func-names */
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcryptjs");
-const Orders = require("./Orders");
+const Orders = require("./Order");
 const SellPost = require("./SellPost");
 
 const userSchema = new Schema({
