@@ -13,7 +13,11 @@ export default function Registration() {
     firstName: '',
     lastName: '',
     email: '',
-    password: ''
+    password: '',
+    address: '',
+    city: '',
+    postalCode: '',
+    state: '',
   });
 
   const [register, { error }] = useMutation(REGISTER_USER);
@@ -27,6 +31,10 @@ export default function Registration() {
           lastName: formState.lastName,
           email: formState.email,
           password: formState.password,
+          address: formState.address,
+          city: formState.city,
+          postalCode: formState.postalCode,
+          state: formState.state
         },
       });
       const { token, user } = mutationResponse.data.register;
@@ -89,6 +97,46 @@ export default function Registration() {
             name="password"
             type="password"
             value={formState.password}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="address">
+          Address:
+          <input
+            placeholder=""
+            name="address"
+            type="address"
+            value={formState.address}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="city">
+          City:
+          <input
+            placeholder=""
+            name="city"
+            type="city"
+            value={formState.city}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="postalCode">
+          Postal Code:
+          <input
+            placeholder=""
+            name="postalCode"
+            type="postalCode"
+            value={formState.postalCode}
+            onChange={handleChange}
+          />
+        </label>
+        <label htmlFor="state">
+          State:
+          <input
+            placeholder=""
+            name="state"
+            type="state"
+            value={formState.state}
             onChange={handleChange}
           />
         </label>
