@@ -1,11 +1,13 @@
 const User = require("./User");
 const SellPost = require("./SellPost");
-const Books = require("./Books");
+const Book = require("./Book");
 const Category = require("./Category");
+const Order = require("./Order");
 
 module.exports = {
   User,
   SellPost,
-  Books,
+  Book,
   Category,
+  Order,
 };
