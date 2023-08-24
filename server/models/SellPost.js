@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const dateFormat = require("../utils/dateFormat");
 
-const salePostSchema = new Schema({
+const sellPostSchema = new Schema({
   id: {
     type: String,
     allowNull: false,
@@ -12,11 +12,20 @@ const salePostSchema = new Schema({
     type: String,
     required: true,
   },
-  post_content: {
+  description: {
     type: String,
     required: true,
     minlength: 1,
     maxlength: 300,
+  },
+  products: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Book",
+    },
+  ],
+  image: {
+    type: String,
   },
   createdAt: {
     type: Date,
@@ -25,6 +34,6 @@ const salePostSchema = new Schema({
   },
 });
 
-const SalePost = model("SellPost", salePostSchema);
+const SellPost = model("SellPost", sellPostSchema);
 
-module.exports = SalePost;
+module.exports = SellPost;
