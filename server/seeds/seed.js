@@ -1,16 +1,22 @@
-// const db = require('../config/connection');
-// const { User } = require('../models');
-// const cleanDB = require('./cleanDB');
+const db = require('../config/connection');
+const { Book, User } = require('../models');
+const cleanDB = require('./cleanDB');
 const fetchBooks = require('./fetchBooks');
-// const users = require('./users.json');
+const users = require('./users.json');
 
-// db.once('open', async () => {
-//   await cleanDB('User', 'users');
+db.once('open', async () => {
+  
+  const books = await fetchBooks();
 
-//   await User.insertMany(users);
+  await cleanDB('Book', 'books');
 
-//   console.log('Users seeded!');
-//   process.exit(0);
-// });
+  await Book.insertMany(books);
 
-fetchBooks();
+  await cleanDB('User', 'users');
+
+  await User.insertMany(users);
+
+  console.log('Users seeded!');
+  process.exit(0);
+});
+

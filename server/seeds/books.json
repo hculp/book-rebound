@@ -1,7 +1,20 @@
 [
   {
     "userEmail": "captainmarvel@example.com",
-    "title": "Fellowship of the Ring",
-    "isbn": "9780547952017"
+    "title": "The Martian",
+    "isbn": "9781101905555",
+    "listedPrice": {
+      "amount": 3.00,
+      "currencyCode": "USD"
+    }
+  },
+  {
+    "userEmail": "captainamerica@example.com",
+    "title": "The Iliad",
+    "isbn": "9780199645213",
+    "listedPrice": {
+      "amount": 5.00,
+      "currencyCode": "USD"
+    }
   }
 ]
