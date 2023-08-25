@@ -1,6 +1,11 @@
+import SidebarComponent from '../components/Sidebar';
+
 function Dashboard() {
   return (
-    <h1 className="page-title">Dashboard</h1>
+    <div>
+      <h1 className="page-title">Dashboard</h1>
+      <SidebarComponent />
+    </div>
   )
 }
 

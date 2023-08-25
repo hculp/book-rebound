@@ -72,6 +72,7 @@ const typeDefs = `#graphql
   }
   type Query {
     currentUser(email: String!): User
+    user: User
     categories: [Category]
     books(category: ID, name: String): [Book]
     book(_id: ID!): Book

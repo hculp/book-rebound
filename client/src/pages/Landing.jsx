@@ -4,7 +4,7 @@ import SearchPagination from '../components/Pagination';
 
 function Landing() {
   return (
-    <div className="bg-slate-500">
+    <div className="bg-forestback-50">
       <SearchComponent />
       <div className="grid grid-cols-3 p-4">
       <BookCard />
