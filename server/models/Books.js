@@ -3,10 +3,12 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const bookSchema = new Schema({
-  name: {
+  title: {
     type: String,
     required: true,
-    trim: true,
+  },
+  isbn: {
+    type: String,
   },
   description: {
     type: String,
@@ -14,7 +16,7 @@ const bookSchema = new Schema({
   image: {
     type: String,
   },
-  price: {
+  listedPrice: {
     type: Number,
     required: true,
     min: 0.99,
@@ -27,10 +29,9 @@ const bookSchema = new Schema({
   category: {
     type: Schema.Types.ObjectId,
     ref: "Category",
-    required: true,
   },
 });
 
-const Book = mongoose.model("Book", bookSchema);
+const Book = mongoose.model("Books", bookSchema);
 
 module.exports = Book;
