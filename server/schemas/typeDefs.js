@@ -72,7 +72,6 @@ const typeDefs = `#graphql
   }
   type Query {
     currentUser(email: String!): User
-    user: User
     categories: [Category]
     books(category: ID, name: String): [Book]
     book(_id: ID!): Book
@@ -85,7 +84,7 @@ const typeDefs = `#graphql
     register(firstName: String!, lastName: String!, email: String!, password: String!, shippingAddress: ShippingAddressInfo!): Auth
     login(email: String!, password: String!): Auth
     addOrder(books: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    updateUser(firstName: String, lastName: String, email: String, password: String, shippingAddress: ShippingAddressInfo!): User
     updateBook(_id: ID!, quantity: Int!): Book
   }
 `;

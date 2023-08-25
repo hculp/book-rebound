@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { REGISTER_USER } from '../graphql/mutations';
+import { UPDATE_USER } from '../graphql/mutations';
 
 import { useCurrentUserContext } from '../context/CurrentUser';
 
-export default function Registration() {
-  const { loginUser } = useCurrentUserContext();
+export default function ProfileUpdate() {
+  const { updateUser } = useCurrentUserContext();
   const navigate = useNavigate();
   const [formState, setFormState] = useState({
     firstName: '',
@@ -16,16 +16,16 @@ export default function Registration() {
     password: '',
     address: '',
     city: '',
-    postalCode: '',
     state: '',
+    postalCode: '',
   });
 
-  const [register, { error }] = useMutation(REGISTER_USER);
+  const [update, { error }] = useMutation(UPDATE_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const mutationResponse = await register({
+      const mutationResponse = await update({
         variables: {
           firstName: formState.firstName,
           lastName: formState.lastName,
@@ -33,12 +33,12 @@ export default function Registration() {
           password: formState.password,
           address: formState.address,
           city: formState.city,
-          postalCode: formState.postalCode,
           state: formState.state,
+          postalCode: formState.postalCode,
         },
       });
       const { token, user } = mutationResponse.data.register;
-      loginUser(user, token);
+      updateUser(user, token);
       navigate('/dashboard');
     } catch (e) {
       // eslint-disable-next-line no-console
@@ -120,16 +120,6 @@ export default function Registration() {
             onChange={handleChange}
           />
         </label>
-        <label htmlFor="postalCode">
-          Postal Code:
-          <input
-            placeholder=""
-            name="postalCode"
-            type="postalCode"
-            value={formState.postalCode}
-            onChange={handleChange}
-          />
-        </label>
         <label htmlFor="state">
           State:
           <input
@@ -140,10 +130,17 @@ export default function Registration() {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Sign Up</button>
-        <p>
-          Already have an account? <Link to="/login"> Login Here</Link>
-        </p>
+        <label htmlFor="postalCode">
+          Postal Code:
+          <input
+            placeholder=""
+            name="postalCode"
+            type="postalCode"
+            value={formState.postalCode}
+            onChange={handleChange}
+          />
+        </label>
+        <button type="submit">Save</button>
       </form>
     </>
   );
