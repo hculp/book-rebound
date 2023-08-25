@@ -1,6 +1,6 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET);
-const { User, Book, Category, Order, SellPost } = require("../models");
-const { signToken, AuthenticationError } = require("../utils");
+const stripe = require('stripe')(process.env.STRIPE_SECRET);
+const { User, Book, Category, Order, SellPost } = require('../models');
+const { signToken, AuthenticationError } = require('../utils');
 
 const resolvers = {
   Query: {
@@ -16,16 +16,16 @@ const resolvers = {
           $regex: name,
         };
       }
-      return await Book.find(params).populate("category");
+      return await Book.find(params).populate('category');
     },
     book: async (parent, { _id }) => {
-      await Book.findById(_id).populate("category");
+      await Book.findById(_id).populate('category');
     },
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: "orders.books",
-          populate: "category",
+          path: 'orders.books',
+          populate: 'category',
         });
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
@@ -45,7 +45,7 @@ const resolvers = {
       for (const book of args.books) {
         line_items.push({
           price_data: {
-            currency: "usd",
+            currency: 'usd',
             book_data: {
               name: book.name,
               description: book.description,
@@ -58,9 +58,9 @@ const resolvers = {
       }
 
       const session = await stripe.checkout.sessions.create({
-        payment_method_types: ["card"],
+        payment_method_types: ['card'],
         line_items,
-        mode: "payment",
+        mode: 'payment',
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${url}/`,
       });
@@ -70,8 +70,17 @@ const resolvers = {
   },
 
   Mutation: {
-    register: async (parent, { firstName, lastName, email, password }) => {
-      const user = await User.create({ firstName, lastName, email, password });
+    register: async (
+      parent,
+      { firstName, lastName, email, password, shippingAddress }
+    ) => {
+      const user = await User.create({
+        firstName,
+        lastName,
+        email,
+        password,
+        shippingAddress,
+      });
       const token = signToken(user);
       return { token, currentUser: user };
     },
