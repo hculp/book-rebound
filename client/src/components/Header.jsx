@@ -5,7 +5,8 @@ import { useCurrentUserContext } from '../context/CurrentUser';
   const { isLoggedIn, logoutUser } = useCurrentUserContext();
 
   return (
-    <nav>
+    <nav className="flex flex-row justify-between">
+      <p className="text-5xl self-start">Book Rebound</p>
       {isLoggedIn() ? (
         <>
           <Link to="/dashboard">Dashboard</Link>
