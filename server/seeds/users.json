@@ -3,12 +3,24 @@
     "firstName": "Steve",
     "lastName": "Rogers",
     "email": "captainamerica@example.com",
-    "password": "passwords1"
+    "password": "passwords1",
+    "shippingAddress": {
+      "address": "123 My St",
+      "city": "Raleigh",
+      "state": "NC",
+      "postalCode": "27613"
+    }
   },
   {
     "firstName": "Carol",
     "lastName": "Danvers",
     "email": "captainmarvel@example.com",
-    "password": "passwords1"
+    "password": "passwords1",
+    "shippingAddress": {
+      "address": "456 Your St",
+      "city": "Clayton",
+      "state": "NC",
+      "postalCode": "27520"
+    }
   }
 ]
