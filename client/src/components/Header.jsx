@@ -5,20 +5,23 @@ import { useCurrentUserContext } from '../context/CurrentUser';
   const { isLoggedIn, logoutUser } = useCurrentUserContext();
 
   return (
-    <nav className="flex flex-row justify-between">
-      <p className="text-5xl self-start">Book Rebound</p>
-      {isLoggedIn() ? (
-        <>
-          <Link to="/dashboard">Dashboard</Link>
-          <button type="button" onClick={logoutUser}>Logout</button>
-        </>
-      ) : (
-        <>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Sign Up</Link>
-        </>
-      )}
-    </nav>
+    <div className="grid grid-cols-2 border-2 border-black">
+      <Link to="/" className="text-5xl ml-2 justify-start">Book Rebound</Link>
+      <nav className="flex flex-row justify-items-end bg-forestback-100">
+        {/* <Link to="/" className="text-5xl self-start ml-2">Book Rebound</Link> */}
+        {isLoggedIn() ? (
+          <>
+            <Link to="/dashboard">Dashboard</Link>
+            <button type="button" onClick={logoutUser}>Logout</button>
+          </>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Sign Up</Link>
+          </>
+        )}
+      </nav>
+    </div>
   );
  }
 
