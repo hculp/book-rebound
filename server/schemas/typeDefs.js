@@ -23,12 +23,10 @@ const typeDefs = `#graphql
 
   type Book {
     _id: ID
-    name: String
+    title: String
+    ISBN: Int
     description: String
-    image: String
-    quantity: Int
-    price: Float
-    category: Category
+    listedPrice: Float
   }
 
   type Order {
@@ -78,7 +76,6 @@ const typeDefs = `#graphql
     book(_id: ID!): Book
     order(_id: ID!): Order
     checkout(books: [BookInput]!): Checkout
-    user: User
   }
 
   type Mutation {
