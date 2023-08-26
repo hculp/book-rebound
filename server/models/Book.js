@@ -13,7 +13,7 @@ const bookSchema = new Schema({
   description: {
     type: String,
   },
-  image: {
+  userEmail: {
     type: String,
   },
   listedPrice: {
@@ -21,17 +21,12 @@ const bookSchema = new Schema({
     required: true,
     min: 0.99,
   },
-  quantity: {
-    type: Number,
-    min: 0,
-    default: 0,
-  },
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: "Category",
-  },
+  // category: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "Category",
+  // },
 });
 
-const Book = mongoose.model("Books", bookSchema);
+const Book = mongoose.model("Book", bookSchema);
 
 module.exports = Book;

@@ -1,14 +1,16 @@
 [
   {
-    "userEmail": "captainmarvel@example.com",
     "title": "The Martian",
     "isbn": "9781101905555",
+    "description": "A guy gets stuck on Mars",
+    "userEmail": "captainmarvel@example.com",
     "listedPrice": 3.00
   },
   {
-    "userEmail": "captainamerica@example.com",
     "title": "The Iliad",
     "isbn": "9780199645213",
+    "description": "There's a ware and Achilles is mad",
+    "userEmail": "captainamerica@example.com",
     "listedPrice": 5.00
   }
 ]

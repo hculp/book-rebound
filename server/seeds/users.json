@@ -3,12 +3,24 @@
     "firstName": "Steve",
     "lastName": "Rogers",
     "email": "captainamerica@example.com",
-    "password": "passwords1"
+    "password": "passwords1",
+    "shippingAddress": {
+      "address": "test",
+      "city": "test",
+      "state": "idk pick one",
+      "postalCode": "11111"
+    }
   },
   {
     "firstName": "Carol",
     "lastName": "Danvers",
     "email": "captainmarvel@example.com",
-    "password": "passwords1"
+    "password": "passwords1",
+    "shippingAddress": {
+      "address": "test",
+      "city": "test",
+      "state": "a state",
+      "postalCode": "99999"
+    }
   }
 ]
