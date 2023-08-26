@@ -27,6 +27,7 @@ const typeDefs = `#graphql
     ISBN: Int
     description: String
     listedPrice: Float
+    category: Category
   }
 
   type Order {
