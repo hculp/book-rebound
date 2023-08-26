@@ -5,7 +5,15 @@ const typeDefs = `#graphql
     lastName: String
     email: String
     password: String
+    shippingAddress: ShippingAddress
     orders: [Order]
+  }
+
+  type ShippingAddress {
+    address: String!
+    city: String!
+    state: String!
+    postalCode: String!
   }
 
   type Category {
@@ -56,19 +64,25 @@ const typeDefs = `#graphql
     price: Float
     quantity: Int
   }
-
+  input ShippingAddressInfo {
+    address: String!
+    city: String!
+    state: String!
+    postalCode: String!
+  }
   type Query {
     currentUser(email: String!): User
+    user: User
     categories: [Category]
     books(category: ID, name: String): [Book]
     book(_id: ID!): Book
     order(_id: ID!): Order
     checkout(books: [BookInput]!): Checkout
-    User: User
+    user: User
   }
 
   type Mutation {
-    register(firstName: String!, lastName: String!, email: String!, password: String!): Auth
+    register(firstName: String!, lastName: String!, email: String!, password: String!, shippingAddress: ShippingAddressInfo!): Auth
     login(email: String!, password: String!): Auth
     addOrder(books: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String): User
