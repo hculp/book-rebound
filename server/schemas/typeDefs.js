@@ -25,6 +25,7 @@ const typeDefs = `#graphql
     _id: ID
     title: String
     ISBN: Int
+    Condition: String
     description: String
     listedPrice: Float
     category: Category

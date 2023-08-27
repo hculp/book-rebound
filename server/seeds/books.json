@@ -2,6 +2,7 @@
   {
     "title": "The Martian",
     "isbn": "9780593357132",
+    "condition": "heavily worn",
     "description": "A guy gets stuck on Mars",
     "userEmail": "captainmarvel@example.com",
     "listedPrice": 3.00
@@ -9,6 +10,7 @@
   {
     "title": "The Iliad",
     "isbn": "9780199645213",
+    "condition": "moderately worn",
     "description": "There's a ware and Achilles is mad",
     "userEmail": "captainamerica@example.com",
     "listedPrice": 5.00
