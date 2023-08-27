@@ -1,10 +1,9 @@
-<!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
+<!-- Modal button -->
+<button id="new-book-listing-btn">Open Modal</button>
 
-<!-- The Modal -->
-<div id="newBookListing" class="modal">
+<!-- Modal -->
+<div id="new-book-listing" class="modal" display="none">
 
-  <!-- Modal content -->
   <form action="signup.html" method="post" id="signup">
     <h1>List a Book to Sell</h1>
     <div class="field">
@@ -30,9 +29,24 @@
       <input type="number" id="listed-price" name="listed-price" placeholder="Enter a price for your book:" />
     </div>
     <button type="submit">List your book!</button>
+    <button type="button" id="cancel-btn">Cancel</button>
   </form>
 
 </div>
+
+<!--  -->
+<!--  -->
+<!--  -->
+<!-- CSS portion -->
+<!--  -->
+<!--  -->
+<!--  -->
+
+<style>
+.modal {
+  display: none;
+}
+</style>
 
 <!--  -->
 <!--  -->
@@ -43,5 +57,17 @@
 <!--  -->
 
 <script>
+
+const newBookListing = document.getElementById("new-book-listing");
+const newBookListingBtn = document.getElementById("new-book-listing-btn");
+const cancelBtn = document.getElementById("cancel-btn");
+
+// When the user clicks on the button, open the modal
+newBookListingBtn.onclick = function() {
+  newBookListing.style.display = "block";
+  cancelBtn.onclick = function() {
+    newBookListing.style.display = "none";
+  }
+}
 
 </script>

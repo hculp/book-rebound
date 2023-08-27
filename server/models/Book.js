@@ -8,7 +8,7 @@ const bookSchema = new Schema({
     required: true,
   },
   isbn: {
-    type: Int,
+    type: String,
   },
   condition: {
     type: String,
