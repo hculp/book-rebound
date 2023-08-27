@@ -13,9 +13,6 @@ module.exports = async () => {
       }
     });
     const data = await res.json();
-    if (data.totalItems == 0 || data.totalItems > 1){
-      throw new Error(`expecting 1 item for isbn ${book.isbn}, instead got ${data.totalItems}`);
-    }
     const retrievedBook = data.items[0];
 
     book.description = retrievedBook.volumeInfo.description;
