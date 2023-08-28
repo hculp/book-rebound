@@ -4,11 +4,12 @@
     "lastName": "Rogers",
     "email": "captainamerica@example.com",
     "password": "passwords1",
-    "shippingAddress": {
-      "address": "test",
-      "city": "test",
-      "state": "idk pick one",
-      "postalCode": "11111"
+    "shippgingAddress": 
+    {
+      "address": "123 Main St",
+      "city": "New York",
+      "state": "NY",
+      "postalCode": "10001"
     }
   },
   {
@@ -16,11 +17,12 @@
     "lastName": "Danvers",
     "email": "captainmarvel@example.com",
     "password": "passwords1",
-    "shippingAddress": {
-      "address": "test",
-      "city": "test",
-      "state": "a state",
-      "postalCode": "99999"
+    "shippgingAddress": 
+    {
+      "address": "123 Main St",
+      "city": "New York",
+      "state": "NY",
+      "postalCode": "10001"
     }
   }
 ]
