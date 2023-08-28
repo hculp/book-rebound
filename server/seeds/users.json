@@ -3,12 +3,26 @@
     "firstName": "Steve",
     "lastName": "Rogers",
     "email": "captainamerica@example.com",
-    "password": "passwords1"
+    "password": "passwords1",
+    "shippgingAddress": 
+    {
+      "address": "123 Main St",
+      "city": "New York",
+      "state": "NY",
+      "postalCode": "10001"
+    }
   },
   {
     "firstName": "Carol",
     "lastName": "Danvers",
     "email": "captainmarvel@example.com",
-    "password": "passwords1"
+    "password": "passwords1",
+    "shippgingAddress": 
+    {
+      "address": "123 Main St",
+      "city": "New York",
+      "state": "NY",
+      "postalCode": "10001"
+    }
   }
 ]
