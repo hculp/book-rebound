@@ -53,11 +53,6 @@ export default function Registration() {
 
   return (
     <>
-      {error ? (
-        <div>
-          <p className="error-text">The provided credentials are incorrect</p>
-        </div>
-      ) : null}
       <form id="registration-form" onSubmit={handleFormSubmit}>
         <h2>Register</h2>
         <label htmlFor="firstName">
@@ -140,6 +135,11 @@ export default function Registration() {
             onChange={handleChange}
           />
         </label>
+        {error ? (
+          <div>
+            <p className="error-text">The provided credentials are incorrect</p>
+          </div>
+        ) : null}
         <button type="submit">Sign Up</button>
         <p>
           Already have an account? <Link to="/login"> Login Here</Link>
