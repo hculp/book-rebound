@@ -131,7 +131,7 @@ const resolvers = {
         listedPrice,
         userEmail,
       });
-      return Book;
+      return book;
     },
     updateBook: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;

@@ -25,3 +25,16 @@ mutation register($firstName: String!, $lastName: String!, $email: String!, $pas
   }
 }
 `;
+
+export const ADD_BOOK = gql`
+mutation add($title: String!, $isbn: String!, $condition: String! $description: String!, $userEmail: String!, $listedPrice: Number, $category: Schema.Types.ObjectId) {
+  add($title: String!, $isbn: String!, $condition: String! $description: String!, $userEmail: String!, $listedPrice: Number, $category: Schema.Types.ObjectId) {
+    currentUser{
+      email
+    }
+    token
+  }
+}
+`;
+
+//is the currentUser thing correct?

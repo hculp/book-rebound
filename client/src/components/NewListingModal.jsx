@@ -5,7 +5,7 @@ const NewListingModal = ({isOpen, onClose}) => {
   if(!isOpen){
     return null;
   }
-  const [ bookData, setBookData ] = useState({
+  const [bookData, setBookData] = useState({
     title: "",
     isbn: "",
     condition: "",
@@ -13,6 +13,7 @@ const NewListingModal = ({isOpen, onClose}) => {
     userEmail: "captainmarvel@example.com",
     //this email is just for now
   });
+  
   const handleChange = (event) => {
     const{name, value} = event.target;
     setBookData( (current) => {
@@ -24,15 +25,26 @@ const NewListingModal = ({isOpen, onClose}) => {
         userEmail: current.userEmail,
       }
       newValue[name] = value;
-      // console.log(`current listing is now ${JSON.stringify(newValue)}`);
-      // console.log(`${name} = ${value}`)
       return newValue;
     });
   };
-  const handleSubmit = (event) => {
+  
+//👷‍♀️🔶road work ahead vvvvvvvvvvv
+
+  const [addBook, { error }] = useMutation(ADD_BOOK);
+
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
+    try {
+      const mutationResponse = await addBook
+    }
+    //await graphql operation
     console.log(JSON.stringify(bookData));
   }
+//
+//👷‍♀️🔶road work ends^^^^^^^^^^^
+//
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
