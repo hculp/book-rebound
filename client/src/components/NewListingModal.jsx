@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useMutation } from '@apollo/client';
+
+import { ADD_BOOK } from '../graphql/mutations';
 
 //this will eventually need to have access to user data to get the user email
 const NewListingModal = ({isOpen, onClose}) => {
   if(!isOpen){
     return null;
   }
-  const [bookData, setBookData] = useState({
+  // const [bookData, setBookData] = useState({
+  const bookData = useState({
     title: "",
     isbn: "",
     condition: "",
@@ -14,36 +18,47 @@ const NewListingModal = ({isOpen, onClose}) => {
     //this email is just for now
   });
   
-  const handleChange = (event) => {
-    const{name, value} = event.target;
-    setBookData( (current) => {
-      const newValue = {
-        title: current.title,
-        isbn: current.isbn,
-        condition: current.condition,
-        listedPrice: current.listedPrice,
-        userEmail: current.userEmail,
-      }
-      newValue[name] = value;
-      return newValue;
-    });
+  // const handleChange = (event) => {
+  //   const{name, value} = event.target;
+  //   setBookData( (current) => {
+  //     const newValue = {
+  //       title: current.title,
+  //       isbn: current.isbn,
+  //       condition: current.condition,
+  //       listedPrice: current.listedPrice,
+  //       userEmail: current.userEmail,
+  //     }
+  //     newValue[name] = value;
+  //     return newValue;
+  //   });
+  // };
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setFormState({ ...formState, [name]: value });
   };
-  
-//👷‍♀️🔶road work ahead vvvvvvvvvvv
 
   const [addBook, { error }] = useMutation(ADD_BOOK);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const mutationResponse = await addBook
+      const mutationResponse = await addBook({
+        query: createNewBookListing,
+        variables: {
+          title: formState.title,
+          isbn: formState.isbn,
+          condition: formState.condition,
+          description: formState.description,
+          userEmail: formState.userEmail,
+          listedPrice: formState.listedPrice,
+        }
+      })
+      console.log('New book listing created!')
+    } catch (err) {
+      console.log({ err });
     }
-    //await graphql operation
-    console.log(JSON.stringify(bookData));
-  }
-//
-//👷‍♀️🔶road work ends^^^^^^^^^^^
-//
+  };
 
   return (
     <div>

@@ -24,11 +24,10 @@ const typeDefs = `#graphql
   type Book {
     _id: ID
     title: String
-    sibn: String
+    isbn: String
     condition: String
     description: String
     listedPrice: Float
-    category: Category
   }
 
   type Order {

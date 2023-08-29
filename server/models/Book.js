@@ -25,10 +25,6 @@ const bookSchema = new Schema({
     required: true,
     min: 0.99,
   },
-  category: {
-    type: Schema.Types.ObjectId,
-    ref: "Category",
-  },
 });
 
 const Book = mongoose.model("Book", bookSchema);

@@ -39,8 +39,8 @@ export const REGISTER_USER = gql`
 `;
 
 export const ADD_BOOK = gql`
-mutation add($title: String!, $isbn: String!, $condition: String! $description: String!, $userEmail: String!, $listedPrice: Number, $category: Schema.Types.ObjectId) {
-  add($title: String!, $isbn: String!, $condition: String! $description: String!, $userEmail: String!, $listedPrice: Number, $category: Schema.Types.ObjectId) {
+mutation add($title: String!, $isbn: String!, $condition: String! $description: String!, $userEmail: String!, $listedPrice: Number) {
+  add($title: String!, $isbn: String!, $condition: String! $description: String!, $userEmail: String!, $listedPrice: Number) {
     currentUser{
       email
     }

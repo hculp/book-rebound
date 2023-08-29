@@ -28,8 +28,8 @@ export default function Login() {
       const { token, user } = mutationResponse.data.login;
       loginUser(user, token);
       navigate('/dashboard');
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.log(err);
     }
   };
 
