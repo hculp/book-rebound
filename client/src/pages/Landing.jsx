@@ -1,7 +1,7 @@
 import SearchComponent from '../components/SearchBar';
 import BookCard from '../components/BookCard';
 import SearchPagination from '../components/Pagination';
-
+import Cart from '../../src/components/cart'
 function Landing() {
   return (
     <div className="bg-forestback-50">
@@ -11,6 +11,7 @@ function Landing() {
       <BookCard />
       <BookCard />
       <SearchPagination />
+      <Cart />
       </div>
       {/* <h1 className="page-title text-4xl">Landing</h1>
       <p className="text-3xl underline">Test element!</p>
