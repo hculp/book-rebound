@@ -55,6 +55,12 @@ export default function Registration() {
 
   return (
     <>
+      {error ? (
+        <div>
+          <p className="error-text">The provided credentials are incorrect</p>
+        </div>
+      ) : null}
+
       <form id="registration-form" onSubmit={handleFormSubmit}>
         <h2>Register</h2>
         <label htmlFor="firstName">
