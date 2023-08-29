@@ -20,36 +20,14 @@ export const REGISTER_USER = gql`
     $lastName: String!
     $email: String!
     $password: String!
+    $shippingAddress: ShippingAddressInfo!
   ) {
     register(
       firstName: $firstName
       lastName: $lastName
       email: $email
       password: $password
-    ) {
-      currentUser {
-        firstName
-        lastName
-      }
-      token
-    }
-  }
-`;
-
-export const UPDATE_USER = gql`
-  mutation register(
-    $firstName: String
-    $lastName: String
-    $email: String
-    $password: String
-    $shippingAddress: ShippingAddressInfo
-  ) {
-    register(
-      firstName: $firstName
-      lastName: $lastName
-      email: $email
-      password: $password
-      shippingAddress: $ShippingAddressInfo
+      shippingAddress: $shippingAddress
     ) {
       currentUser {
         firstName

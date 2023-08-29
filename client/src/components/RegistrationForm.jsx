@@ -135,14 +135,9 @@ export default function Registration() {
             onChange={handleChange}
           />
         </label>
-        {error ? (
-          <div>
-            <p className="error-text">The provided credentials are incorrect</p>
-          </div>
-        ) : null}
         <button type="submit">Sign Up</button>
         <p>
-          Already have an account? <Link to="/login"> Login Here</Link>
+          Already have an account? Login <Link to="/register">here</Link>
         </p>
       </form>
     </>

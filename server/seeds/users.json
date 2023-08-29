@@ -5,10 +5,10 @@
     "email": "captainamerica@example.com",
     "password": "passwords1",
     "shippingAddress": {
-      "address": "123 My St",
-      "city": "Raleigh",
-      "state": "NC",
-      "postalCode": "27613"
+      "address": "123 Main St",
+      "city": "New York",
+      "state": "NY",
+      "postalCode": "10001"
     }
   },
   {
@@ -17,10 +17,10 @@
     "email": "captainmarvel@example.com",
     "password": "passwords1",
     "shippingAddress": {
-      "address": "456 Your St",
-      "city": "Clayton",
-      "state": "NC",
-      "postalCode": "27520"
+      "address": "123 Main St",
+      "city": "New York",
+      "state": "NY",
+      "postalCode": "10001"
     }
   }
 ]
