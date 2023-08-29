@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCurrentUserContext } from '../context/CurrentUser';
 import { Sidebar } from 'flowbite-react';
@@ -27,11 +26,10 @@ export default function SidebarComponent() {
             <Sidebar.Item className="bg-forestfront-50 hover:bg-forestback-50">
               <p>My purchases</p>
             </Sidebar.Item>
-            <Sidebar.Item className="bg-forestfront-50 hover:bg-forestback-50">
-              <link to="/userProfile">User Profile</link>
-            </Sidebar.Item>
+            <Sidebar.Item className="bg-forestfront-50 hover:bg-forestback-50"></Sidebar.Item>
           </Sidebar.ItemGroup>
         </Sidebar.Items>
+        <Link to="/userProfile">User Profile</Link>
       </Sidebar>
     </div>
   );
