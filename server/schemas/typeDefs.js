@@ -5,7 +5,7 @@ const typeDefs = `#graphql
     lastName: String
     email: String
     password: String
-    shippingAddress: ShippingAddress
+    shippingAddress: [ShippingAddress]
     orders: [Order]
   }
 
