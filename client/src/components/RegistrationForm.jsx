@@ -31,10 +31,12 @@ export default function Registration() {
           lastName: formState.lastName,
           email: formState.email,
           password: formState.password,
-          address: formState.address,
-          city: formState.city,
-          postalCode: formState.postalCode,
-          state: formState.state,
+          shippingAddress: {
+            address: formState.address,
+            city: formState.city,
+            postalCode: formState.postalCode,
+            state: formState.state,
+          },
         },
       });
       const { token, user } = mutationResponse.data.register;
