@@ -4,8 +4,7 @@
     "lastName": "Rogers",
     "email": "captainamerica@example.com",
     "password": "passwords1",
-    "shippgingAddress": 
-    {
+    "shippingAddress": {
       "address": "123 Main St",
       "city": "New York",
       "state": "NY",
@@ -17,8 +16,7 @@
     "lastName": "Danvers",
     "email": "captainmarvel@example.com",
     "password": "passwords1",
-    "shippgingAddress": 
-    {
+    "shippingAddress": {
       "address": "123 Main St",
       "city": "New York",
       "state": "NY",
