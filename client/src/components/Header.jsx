@@ -13,7 +13,9 @@ function Header() {
         {/* <Link to="/" className="text-5xl self-start ml-2">Book Rebound</Link> */}
         {isLoggedIn() ? (
           <>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link className="mr-5" to="/dashboard">
+              Dashboard
+            </Link>
             <button type="button" onClick={logoutUser}>
               Logout
             </button>
