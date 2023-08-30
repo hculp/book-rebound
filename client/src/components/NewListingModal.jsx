@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
 
+import { QUERY_BOOKS } from '../graphql/queries';
 import { ADD_BOOK } from '../graphql/mutations';
 
 //this will eventually need to have access to user data to get the user email
@@ -8,8 +9,8 @@ const NewListingModal = ({isOpen, onClose}) => {
   if(!isOpen){
     return null;
   }
-  // const [bookData, setBookData] = useState({
-  const bookData = useState({
+
+  const [bookData, setBookData] = useState({
     title: "",
     isbn: "",
     condition: "",
@@ -17,44 +18,25 @@ const NewListingModal = ({isOpen, onClose}) => {
     userEmail: "captainmarvel@example.com",
     //this email is just for now
   });
-  
-  // const handleChange = (event) => {
-  //   const{name, value} = event.target;
-  //   setBookData( (current) => {
-  //     const newValue = {
-  //       title: current.title,
-  //       isbn: current.isbn,
-  //       condition: current.condition,
-  //       listedPrice: current.listedPrice,
-  //       userEmail: current.userEmail,
-  //     }
-  //     newValue[name] = value;
-  //     return newValue;
-  //   });
-  // };
+
+  const [addBook, { err }] = useMutation(ADD_BOOK, {
+    refetchQueries: [
+      QUERY_BOOKS,
+      'books'
+    ]
+  });
 
   const handleChange = event => {
     const { name, value } = event.target;
-    setFormState({ ...formState, [name]: value });
+    setBookData({ ...bookData, [name]: value });
+    console.log('change handleded')
   };
 
-  const [addBook, { error }] = useMutation(ADD_BOOK);
-
-  const handleFormSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const mutationResponse = await addBook({
-        query: createNewBookListing,
-        variables: {
-          title: formState.title,
-          isbn: formState.isbn,
-          condition: formState.condition,
-          description: formState.description,
-          userEmail: formState.userEmail,
-          listedPrice: formState.listedPrice,
-        }
-      })
-      console.log('New book listing created!')
+      await addBook({variables: { bookData }});
+      console.log('New book listing created!');
     } catch (err) {
       console.log({ err });
     }

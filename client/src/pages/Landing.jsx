@@ -7,14 +7,18 @@ import SearchPagination from '../components/Pagination';
 import NewListingModal from '../components/NewListingModal';
 
 function Landing() {
-// This needs to be moved to Dashboard once login is fixed
-  const [ isNewListingOpen, setNewListingOpen ] = useState (false);
+  //
+  //
+  // This needs to be moved to Dashboard once login is fixed
+  const [ isNewListingOpen, setNewListingOpen ] = useState(false);
   const openNewListingModal = () => {
-    setNewListingOpen (true);
+    setNewListingOpen(true);
   };
   const closeNewListingModal = () => {
-    setNewListingOpen (false);
+    setNewListingOpen(false);
   };
+  //
+  //
   // 
   return (
     <div className="bg-forestback-50">

@@ -39,14 +39,26 @@ export const REGISTER_USER = gql`
 `;
 
 export const ADD_BOOK = gql`
-mutation add($title: String!, $isbn: String!, $condition: String! $description: String!, $userEmail: String!, $listedPrice: Number) {
-  add($title: String!, $isbn: String!, $condition: String! $description: String!, $userEmail: String!, $listedPrice: Number) {
-    currentUser{
-      email
+mutation addBook(
+  $title: String!
+  $isbn: String!
+  $condition: String!
+  $description: String!
+  $userEmail: String!
+  $listedPrice: Number) {
+    add(
+      title: $title
+      isbn: $isbn
+      condition: $condition
+      description: $description 
+      userEmail: $userEmail
+      listedPrice: $listedPrice
+    ) {
+      title
+      isbn
+      condition
+      userEmail
+      ListedPrince
     }
-    token
   }
-}
 `;
-
-//is the currentUser thing correct?

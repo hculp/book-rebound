@@ -11,3 +11,16 @@ export const QUERY_CURRENT_USER = gql`
     }
   }
 `;
+
+export const QUERY_BOOKS = gql`
+  query getBooks {
+      books {
+        title
+        isbn
+        condition
+        description 
+        userEmail
+        listedPrice
+      }
+    }
+`

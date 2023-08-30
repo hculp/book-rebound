@@ -128,6 +128,7 @@ const resolvers = {
         title,
         isbn,
         condition,
+        description,
         listedPrice,
         userEmail,
       });

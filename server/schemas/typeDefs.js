@@ -76,6 +76,7 @@ const typeDefs = `#graphql
     book(_id: ID!): Book
     order(_id: ID!): Order
     checkout(books: [BookInput]!): Checkout
+    user: User
   }
 
   type Mutation {
@@ -83,6 +84,7 @@ const typeDefs = `#graphql
     login(email: String!, password: String!): Auth
     addOrder(books: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String, shippingAddress: ShippingAddressInfo!): User
+    addBook(title: String!, isbn: String!, condition: String!, description: String!, listedPrice: Int!, userEmail: String!): Book
     updateBook(_id: ID!, quantity: Int!): Book
   }
 `;
