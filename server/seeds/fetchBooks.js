@@ -15,7 +15,7 @@ module.exports = async () => {
     const data = await res.json();
     const retrievedBook = data.items[0];
 
-    book.description = retrievedBook.volumeInfo.description;
+    // book.description = retrievedBook.volumeInfo.description;
 
     retrievedBooks.push(book);
   }

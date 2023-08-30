@@ -43,14 +43,12 @@ mutation addBook(
   $title: String!
   $isbn: String!
   $condition: String!
-  $description: String!
   $userEmail: String!
-  $listedPrice: Number) {
-    add(
+  $listedPrice: String!) {
+    addBook(
       title: $title
       isbn: $isbn
       condition: $condition
-      description: $description 
       userEmail: $userEmail
       listedPrice: $listedPrice
     ) {
@@ -58,7 +56,7 @@ mutation addBook(
       isbn
       condition
       userEmail
-      ListedPrince
+      listedPrice
     }
   }
 `;

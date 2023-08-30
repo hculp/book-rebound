@@ -6,9 +6,6 @@ import { ADD_BOOK } from '../graphql/mutations';
 
 //this will eventually need to have access to user data to get the user email
 const NewListingModal = ({isOpen, onClose}) => {
-  if(!isOpen){
-    return null;
-  }
 
   const [bookData, setBookData] = useState({
     title: "",
@@ -22,7 +19,7 @@ const NewListingModal = ({isOpen, onClose}) => {
   const [addBook, { err }] = useMutation(ADD_BOOK, {
     refetchQueries: [
       QUERY_BOOKS,
-      'books'
+      { query: QUERY_BOOKS }
     ]
   });
 
@@ -35,12 +32,17 @@ const NewListingModal = ({isOpen, onClose}) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await addBook({variables: { bookData }});
+      console.log(bookData);
+      await addBook({variables: { ...bookData }});
       console.log('New book listing created!');
     } catch (err) {
       console.log({ err });
     }
   };
+
+  if(!isOpen){
+    return null;
+  }
 
   return (
     <div>
@@ -59,7 +61,7 @@ const NewListingModal = ({isOpen, onClose}) => {
         <div>
           <label>Please select the condition of your book (note: listed books must be in one piece and be readable)</label>
           <select name="condition" value={bookData.condition} onChange={handleChange}>
-            <option value="selected">Select your book's condition:</option>
+            <option value=" ">Select your book's condition:</option>
             <option value="new">New</option>
             <option value="lightly-worn">Lightly worn</option>
             <option value="moderately-worn">Moderately worn</option>

@@ -18,7 +18,6 @@ export const QUERY_BOOKS = gql`
         title
         isbn
         condition
-        description 
         userEmail
         listedPrice
       }

@@ -26,8 +26,8 @@ const typeDefs = `#graphql
     title: String
     isbn: String
     condition: String
-    description: String
     listedPrice: Float
+    userEmail: String
   }
 
   type Order {
@@ -84,7 +84,7 @@ const typeDefs = `#graphql
     login(email: String!, password: String!): Auth
     addOrder(books: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String, shippingAddress: ShippingAddressInfo!): User
-    addBook(title: String!, isbn: String!, condition: String!, description: String!, listedPrice: Int!, userEmail: String!): Book
+    addBook(title: String!, isbn: String!, condition: String!, listedPrice: String!, userEmail: String!): Book
     updateBook(_id: ID!, quantity: Int!): Book
   }
 `;
