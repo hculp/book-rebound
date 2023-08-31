@@ -30,6 +30,11 @@ export default function SidebarComponent() {
               <Sidebar.Item className="bg-forestfront-50 hover:bg-forestback-50">
                 <Link to="/UpdateUser">User Profile</Link>
               </Sidebar.Item>
+              <Sidebar.Item className="bg-forestfront-50 hover:bg-forestback-50">
+                <Link to="../components/NewListingModal.jsx">
+                  List New Book
+                </Link>
+              </Sidebar.Item>
             </Sidebar.ItemGroup>
           </Sidebar.Items>
         </Sidebar>

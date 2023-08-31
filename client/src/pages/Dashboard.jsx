@@ -1,7 +1,7 @@
 import SidebarComponent from '../components/Sidebar';
 import NewListingModal from '../components/NewListingModal';
 import { useState } from 'react';
-import UserBooks from '../components/userBooks';
+import UserBooks from '../components/UserBooks';
 import SearchComponent from '../components/SearchBar';
 
 function Dashboard() {
