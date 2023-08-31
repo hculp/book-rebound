@@ -5,7 +5,7 @@ const typeDefs = `#graphql
     lastName: String
     email: String
     password: String
-    shippingAddress: [ShippingAddress]
+    shippingAddress: ShippingAddress
     orders: [Order]
   }
 
@@ -83,7 +83,7 @@ const typeDefs = `#graphql
     register(firstName: String!, lastName: String!, email: String!, password: String!, shippingAddress: ShippingAddressInfo!): Auth
     login(email: String!, password: String!): Auth
     addOrder(books: [ID]!): Order
-    updateUser(firstName: String, lastName: String, email: String, password: String, shippingAddress: ShippingAddressInfo!): User
+    updateUser(_id: ID!, firstName: String, lastName: String, email: String, password: String, shippingAddress: ShippingAddressInfo): User
     addBook(title: String!, isbn: String!, condition: String!, listedPrice: String!, userEmail: String!): Book
     updateBook(_id: ID!, quantity: Int!): Book
   }
