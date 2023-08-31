@@ -1,10 +1,19 @@
 const db = require('../config/connection');
-const { User } = require('../models');
+const { Book, User } = require('../models');
 const cleanDB = require('./cleanDB');
-
+const fetchBooks = require('./fetchBooks');
 const users = require('./users.json');
 
 db.once('open', async () => {
+  
+  const books = await fetchBooks();
+
+  await cleanDB('Book', 'books');
+
+  await Book.insertMany(books);
+
+  console.log('Books seeded!');
+
   await cleanDB('User', 'users');
 
   await User.insertMany(users);
