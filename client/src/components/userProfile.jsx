@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import { REGISTER_USER } from '../graphql/mutations';
+import { UPDATE_USER } from '../graphql/mutations';
 
 import { useCurrentUserContext } from '../context/CurrentUser';
 
-export default function Registration() {
-  const { loginUser } = useCurrentUserContext();
+export default function ProfileUpdate() {
+  const { updateUser } = useCurrentUserContext();
   const navigate = useNavigate();
   const [formState, setFormState] = useState({
     firstName: '',
@@ -16,31 +16,29 @@ export default function Registration() {
     password: '',
     address: '',
     city: '',
-    postalCode: '',
     state: '',
+    postalCode: '',
   });
 
-  const [register, { error }] = useMutation(REGISTER_USER);
+  const [update, { error }] = useMutation(UPDATE_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const mutationResponse = await register({
+      const mutationResponse = await update({
         variables: {
           firstName: formState.firstName,
           lastName: formState.lastName,
           email: formState.email,
           password: formState.password,
-          shippingAddress: {
-            address: formState.address,
-            city: formState.city,
-            postalCode: formState.postalCode,
-            state: formState.state,
-          },
+          address: formState.address,
+          city: formState.city,
+          state: formState.state,
+          postalCode: formState.postalCode,
         },
       });
       const { token, user } = mutationResponse.data.register;
-      loginUser(user, token);
+      updateUser(user, token);
       navigate('/dashboard');
     } catch (e) {
       // eslint-disable-next-line no-console
@@ -60,9 +58,8 @@ export default function Registration() {
           <p className="error-text">The provided credentials are incorrect</p>
         </div>
       ) : null}
-
-      <form id="registration-form" onSubmit={handleFormSubmit} className="bg-forestfront-50 max-w-lg mx-auto px-3 rounded flex flex-col">
-        <h2 className="text-center text-xl">Register</h2>
+      <form id="registration-form" onSubmit={handleFormSubmit}>
+        <h2>Register</h2>
         <label htmlFor="firstName">
           First name:
           <input
@@ -111,7 +108,6 @@ export default function Registration() {
             type="address"
             value={formState.address}
             onChange={handleChange}
-            className="p-2"
           />
         </label>
         <label htmlFor="city">
@@ -122,18 +118,6 @@ export default function Registration() {
             type="city"
             value={formState.city}
             onChange={handleChange}
-            className="p-2"
-          />
-        </label>
-        <label htmlFor="postalCode">
-          Postal Code:
-          <input
-            placeholder=""
-            name="postalCode"
-            type="postalCode"
-            value={formState.postalCode}
-            onChange={handleChange}
-            className="p-2"
           />
         </label>
         <label htmlFor="state">
@@ -144,13 +128,19 @@ export default function Registration() {
             type="state"
             value={formState.state}
             onChange={handleChange}
-            className="p-2"
           />
         </label>
-        <button type="submit" className="border-0 border-solid rounded-md hover:text-cyan-500 hover:underline">Sign Up</button>
-        <p>
-          Already have an account? Login <Link to="/register" className="text-blue-400 hover:text-cyan-500 underline">here</Link>
-        </p>
+        <label htmlFor="postalCode">
+          Postal Code:
+          <input
+            placeholder=""
+            name="postalCode"
+            type="postalCode"
+            value={formState.postalCode}
+            onChange={handleChange}
+          />
+        </label>
+        <button type="submit">Save</button>
       </form>
     </>
   );

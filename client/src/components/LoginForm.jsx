@@ -28,8 +28,8 @@ export default function Login() {
       const { token, user } = mutationResponse.data.login;
       loginUser(user, token);
       navigate('/dashboard');
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -42,11 +42,11 @@ export default function Login() {
     <>
       {error ? (
         <div>
-          <p className="error-text">The provided credentials are incorrect</p>
+          <p className="error-text mt-4">The provided credentials are incorrect</p>
         </div>
       ) : null}
-      <form id="login-form" onSubmit={handleFormSubmit}>
-        <h2>Login</h2>
+      <form id="login-form" onSubmit={handleFormSubmit} className="bg-forestfront-50 max-w-lg mx-auto px-3 rounded flex flex-col">
+        <h2 className="text-center text-xl">Login</h2>
         <label htmlFor="email">
           Email:
           <input
@@ -67,15 +67,15 @@ export default function Login() {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">
+        <button type="submit" className="border-0 border-solid rounded-md hover:text-cyan-500 hover:underline">
           Login
         </button>
         <p>
           Need an account? Sign up
           {' '}
-          <Link to="/register">here</Link>
+          <Link to="/register" className="text-blue-400 hover:text-cyan-500 underline">here</Link>
         </p>
       </form>
     </>
   );
-}
+};
