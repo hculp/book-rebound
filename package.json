@@ -33,6 +33,6 @@
     "prettier": "^3.0.2"
   },
   "dependencies": {
-    
+    "@stripe/stripe-js": "^2.1.0"
   }
 }
