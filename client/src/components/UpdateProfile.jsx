@@ -20,12 +20,6 @@ export default function ProfileUpdate() {
       lastName: CurrentUserContext.lastName,
       email: CurrentUserContext.email,
       password: CurrentUserContext.password,
-      // shippingAddress: {
-      //   address: CurrentUserContext.address,
-      //   city: CurrentUserContext.city,
-      //   state: CurrentUserContext.state,
-      //   postalCode: CurrentUserContext.postalCode,
-      // },
     },
   });
 
@@ -73,7 +67,11 @@ export default function ProfileUpdate() {
           <p className="error-text">The provided credentials are incorrect</p>
         </div>
       ) : null}
-      <form id="registration-form" onSubmit={handleFormSubmit} className="bg-forestfront-50 mx-auto">
+      <form
+        id="registration-form"
+        onSubmit={handleFormSubmit}
+        className="bg-forestfront-50 mx-auto"
+      >
         <h2 className="font-bold">Update User Info</h2>
         <label htmlFor="firstName">
           First name:
