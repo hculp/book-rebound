@@ -73,7 +73,7 @@ export default function ProfileUpdate() {
           <p className="error-text">The provided credentials are incorrect</p>
         </div>
       ) : null}
-      <form id="registration-form" onSubmit={handleFormSubmit}>
+      <form id="registration-form" onSubmit={handleFormSubmit} className="bg-forestfront-50 mx-auto">
         <h2 className="font-bold">Update User Info</h2>
         <label htmlFor="firstName">
           First name:
@@ -122,6 +122,7 @@ export default function ProfileUpdate() {
             type="address"
             value={formState.address}
             onChange={handleChange}
+            className="border-0 border-black p-2"
           />
         </label>
         <label htmlFor="city">
@@ -132,6 +133,7 @@ export default function ProfileUpdate() {
             type="city"
             value={formState.city}
             onChange={handleChange}
+            className="border-0 border-black p-2"
           />
         </label>
         <label htmlFor="state">
@@ -142,6 +144,7 @@ export default function ProfileUpdate() {
             type="state"
             value={formState.state}
             onChange={handleChange}
+            className="border-0 border-black p-2"
           />
         </label>
         <label htmlFor="postalCode">
@@ -152,6 +155,7 @@ export default function ProfileUpdate() {
             type="postalCode"
             value={formState.postalCode}
             onChange={handleChange}
+            className="border-0 border-black p-2"
           />
         </label>
         <button type="submit">Save</button>
