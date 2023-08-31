@@ -1,6 +1,6 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET);
-const { User, Book, Category, Order, SellPost } = require('../models');
-const { signToken, AuthenticationError } = require('../utils');
+const stripe = require("stripe")(process.env.STRIPE_SECRET);
+const { User, Book, Category, Order, SellPost } = require("../models");
+const { signToken, AuthenticationError } = require("../utils");
 
 const resolvers = {
   Query: {
@@ -19,13 +19,13 @@ const resolvers = {
       return await Book.find(params);
     },
     book: async (parent, { _id }) => {
-      await Book.findById(_id).populate('category');
+      await Book.findById(_id).populate("category");
     },
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
-          path: 'orders.books',
-          populate: 'category',
+          path: "orders.books",
+          populate: "category",
         });
 
         user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
@@ -45,7 +45,7 @@ const resolvers = {
       for (const book of args.books) {
         line_items.push({
           price_data: {
-            currency: 'usd',
+            currency: "usd",
             book_data: {
               name: book.name,
               description: book.description,
@@ -58,9 +58,9 @@ const resolvers = {
       }
 
       const session = await stripe.checkout.sessions.create({
-        payment_method_types: ['card'],
+        payment_method_types: ["card"],
         line_items,
-        mode: 'payment',
+        mode: "payment",
         success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${url}/`,
       });
@@ -101,14 +101,9 @@ const resolvers = {
 
       return { token, currentUser: user };
     },
-    updateUser: async (parent, args, context) => {
-      if (context.user) {
-        return await User.findByIdAndUpdate(context.user._id, args, {
-          new: true,
-        });
-      }
-
-      throw AuthenticationError;
+    updateUser: async (parent, args) => {
+      const user = await User.findByIdAndUpdate(args.id, { new: true });
+      return user;
     },
     addOrder: async (parent, { books }, context) => {
       if (context.user) {
@@ -123,18 +118,23 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    
-    addBook: async (parent, { title, isbn, condition, listedPrice, userEmail }, context) => {
+
+    addBook: async (
+      parent,
+      { title, isbn, condition, listedPrice, userEmail },
+      context
+    ) => {
       const book = await Book.create({
         title,
         isbn,
         condition,
         listedPrice,
         userEmail,
-      }); console.log(book);
+      });
+      console.log(book);
       return book;
-    },    
-    
+    },
+
     updateBook: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 

@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 // eslint-disable-next-line import/prefer-default-export
 export const QUERY_CURRENT_USER = gql`
@@ -8,32 +8,37 @@ export const QUERY_CURRENT_USER = gql`
       email
       firstName
       lastName
-      password
+      shippingAddress {
+        address
+        city
+        state
+        postalCode
+      }
     }
   }
 `;
 
 export const QUERY_BOOKS = gql`
   query getBooks {
-      books {
-        title
-        isbn
-        condition
-        userEmail
-        listedPrice
-      }
+    books {
+      title
+      isbn
+      condition
+      userEmail
+      listedPrice
     }
+  }
 `;
 
 export const QUERY_BOOKS_FOR_USER = gql`
-query getBooksForUser($userEmail: String!) {
-  books(userEmail: $userEmail) {
-    _id
-    title
-    isbn
-    condition
-    userEmail
-    listedPrice
+  query getBooksForUser($userEmail: String!) {
+    books(userEmail: $userEmail) {
+      _id
+      title
+      isbn
+      condition
+      userEmail
+      listedPrice
+    }
   }
-}
 `;
