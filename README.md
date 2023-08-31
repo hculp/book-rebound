@@ -15,8 +15,10 @@
 </details>
 
 ## Description
+
 Are you a book lover looking to sell and buy books directly from other book lovers? Perhaps you're trying to self-publish and need some starting sales among like minded readers. Or looking for that elusive book to add to your collection. At Book Rebound you can do just that! \
 Trade and sell your used or new books with others and keep feeding that your book worm needs. Users can find books of interest by author, genre, condition, price, and more. Sign up today and find that missing book you need.
+
 ## License
 
 [![MIT Licence](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -28,11 +30,15 @@ Trade and sell your used or new books with others and keep feeding that your boo
 
 ## Screenshots
 
+Landing Page ![image](client/src/assets/LandingPage.png) Login Page ![image](client/src/assets/LoginPage.png) Signup Page ![image](client/src/assets/SignupPage.png) User Dashboard ![image](client/src/assets/UserDashboard.png) Update User Page ![image](client/src/assets/UpdateUser.png)
+
 ## Deployed Application
 
 [Heroku link](https://fast-refuge-94377-40081dc3bc4c.herokuapp.com/) to application.
 
 ## Acknowledgements
+
+Thank you to our instructor and all of the TA's for their ongoing support and expertise.
 
 ## Contributors / Contact Info
 
