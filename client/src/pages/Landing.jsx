@@ -15,7 +15,7 @@ function Landing() {
     setNewListingOpen(true);
   };
   const closeNewListingModal = () => {
-    setNewListingOpen(false);
+    setNewListingOpen (false);
   };
   //
   //
@@ -32,7 +32,7 @@ function Landing() {
       {/* <h1 className="page-title text-4xl">Landing</h1>
       <p className="text-3xl underline">Test element!</p>
       <p className="border border-3 rounded-xl">Another test</p> */}
-      <button onClick={() => openNewListingModal()}>List New Book</button>
+      <button onClick={openNewListingModal}>List New Book</button>
       <NewListingModal isOpen={isNewListingOpen} onClose={closeNewListingModal} />
     </div>
   )
