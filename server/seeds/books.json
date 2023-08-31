@@ -1,16 +1,81 @@
 [
   {
+    "_id": "1",
     "title": "The Martian",
     "isbn": "9780593357132",
-    "condition": "heavily worn",
+    "condition": "severely worn",
     "userEmail": "captainmarvel@example.com",
     "listedPrice": 3.00
   },
   {
+    "_id": "2",
     "title": "The Iliad",
     "isbn": "9780199645213",
     "condition": "moderately worn",
     "userEmail": "captainamerica@example.com",
     "listedPrice": 5.00
+  },
+  {
+    "title": "Effective JavaScript",
+    "isbn": "9780321812186",
+    "condition": "lightly worn",
+    "userEmail": "captainamerica@example.com",
+    "listedPrice": 5.49
+  },
+  {
+    "title": "Bloodchild and Other Stories",
+    "isbn": "9781583228036",
+    "condition": "moderately worn",
+    "userEmail": "captainmarvel@example.com",
+    "listedPrice": 4
+  },
+  {
+    "title": "Everybody Has a Podcast (Except You)",
+    "isbn": "9780062974822",
+    "condition": "moderately worn",
+    "userEmail": "captainamerica@example.com",
+    "listedPrice": 7
+  },
+  {
+    "title": "Integrated Korean (Beginning 1)",
+    "isbn": "9780824834401",
+    "condition": "severely worn",
+    "userEmail": "captainmarvel@example.com",
+    "listedPrice": 10
+  },
+  {
+    "title": "Journey to the West",
+    "isbn": "9789812298898",
+    "condition": "new",
+    "userEmail": "captainamerica@example.com",
+    "listedPrice": 6.25
+  },
+  {
+    "title": "Calculus for the AP Course",
+    "isbn": "9781319121129",
+    "condition": "new",
+    "userEmail": "captainamerica@example.com",
+    "listedPrice": 11
+  },
+  {
+    "title": "Microsoft SQL Server 2019",
+    "isbn": "9781260458879",
+    "condition": "lightly worn",
+    "userEmail": "captainmarvel@example.com",
+    "listedPrice": 7.77
+  },
+  {
+    "title": "The Cat in the Hat",
+    "isbn": "9780449810866",
+    "condition": "lightly worn",
+    "userEmail": "captainmarvel@example.com",
+    "listedPrice": 1
+  },
+  {
+    "title": "A Swift Guide to Butterflies of North America",
+    "isbn": "9781400887774",
+    "condition": "moderately worn",
+    "userEmail": "captainamerica@example.com",
+    "listedPrice": 3
   }
 ]
