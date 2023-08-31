@@ -60,3 +60,27 @@ export const UPDATE_USER = gql`
     }
   }
 `;
+
+export const ADD_BOOK = gql`
+  mutation addBook(
+    $title: String!
+    $isbn: String!
+    $condition: String!
+    $userEmail: String!
+    $listedPrice: String!
+  ) {
+    addBook(
+      title: $title
+      isbn: $isbn
+      condition: $condition
+      userEmail: $userEmail
+      listedPrice: $listedPrice
+    ) {
+      title
+      isbn
+      condition
+      userEmail
+      listedPrice
+    }
+  }
+`;

@@ -5,7 +5,7 @@ const typeDefs = `#graphql
     lastName: String
     email: String
     password: String
-    shippingAddress: ShippingAddress
+    shippingAddress: [ShippingAddress]
     orders: [Order]
   }
 
@@ -23,12 +23,11 @@ const typeDefs = `#graphql
 
   type Book {
     _id: ID
-    name: String
-    description: String
-    image: String
-    quantity: Int
-    price: Float
-    category: Category
+    title: String
+    isbn: String
+    condition: String
+    listedPrice: Float
+    userEmail: String
   }
 
   type Order {
@@ -73,7 +72,7 @@ const typeDefs = `#graphql
   type Query {
     currentUser(email: String!): User
     categories: [Category]
-    books(category: ID, name: String): [Book]
+    books(title: String, userEmail: String): [Book]
     book(_id: ID!): Book
     order(_id: ID!): Order
     checkout(books: [BookInput]!): Checkout
@@ -85,6 +84,7 @@ const typeDefs = `#graphql
     login(email: String!, password: String!): Auth
     addOrder(books: [ID]!): Order
     updateUser(firstName: String, lastName: String, email: String, password: String, shippingAddress: ShippingAddressInfo!): User
+    addBook(title: String!, isbn: String!, condition: String!, listedPrice: String!, userEmail: String!): Book
     updateBook(_id: ID!, quantity: Int!): Book
   }
 `;
