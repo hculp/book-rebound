@@ -6,7 +6,6 @@ import { ADD_BOOK } from '../graphql/mutations';
 
 import { useCurrentUserContext } from "../context/CurrentUser";
 
-
 //this will eventually need to have access to user data to get the user email
 const NewListingModal = ({isOpen, onClose}) => {
 
@@ -80,7 +79,7 @@ const NewListingModal = ({isOpen, onClose}) => {
           value={bookData.listedPrice} onChange={handleChange} />
         </div>
         <button type="submit">List your book!</button>
-        <button onClick={onClose} type="button">Cancel</button>
+        <button onClick={onClose} type="button">Close</button>
       </form>
     </div>
   );
