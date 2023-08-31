@@ -20,7 +20,7 @@ export default function SidebarComponent() {
 
   return (
     <div className="bg-forestback-50 p-2">
-      <div className="bg-forestfront-50 rounded border-black flex flex-auto max-w-md p-2">
+      <div className="bg-forestfront-50 rounded border-black flex flex-auto max-w-lg p-2">
         {/* {isLoggedIn() ? (
                 <>
                     <p>My purchases</p>
@@ -32,7 +32,7 @@ export default function SidebarComponent() {
                 </>
             )} */}
 
-        <Sidebar className=" bg-forestback-50">
+        <Sidebar className=" bg-forestback-50 flex flex-auto max-w-lg">
           <Sidebar.Items>
             <Sidebar.ItemGroup>
               <Sidebar.Item className="bg-forestfront-50 hover:bg-forestback-50">

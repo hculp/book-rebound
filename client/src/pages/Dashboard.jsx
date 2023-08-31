@@ -3,7 +3,6 @@ import UserBooks from '../components/UserBooks';
 import SearchComponent from '../components/SearchBar';
 
 function Dashboard() {
-
   return (
     <div>
       <SearchComponent />
