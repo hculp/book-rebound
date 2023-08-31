@@ -1,4 +1,4 @@
-import UserProfile from '../components/UpdateUser';
+import UserProfile from '../components/UpdateProfile';
 
 function UpdateUser() {
   return (

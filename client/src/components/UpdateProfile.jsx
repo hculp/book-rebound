@@ -107,6 +107,7 @@ export default function ProfileUpdate() {
         <label htmlFor="password">
           Password
           <input
+            placeholder=""
             name="password"
             type="password"
             value={formState.password}
@@ -153,9 +154,7 @@ export default function ProfileUpdate() {
             onChange={handleChange}
           />
         </label>
-        <button className='gradientMonochrome="success"' type="submit">
-          Save
-        </button>
+        <button type="submit">Save</button>
       </form>
     </>
   );
