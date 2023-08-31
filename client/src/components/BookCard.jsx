@@ -6,11 +6,10 @@ import { CartContext } from './cartContext';
 
 const BookCard = () => {
 
-  function addToCart() {
-    if (!data.loaded) return; // Wait for the data to be loaded
-  
-    console.log(data._id)
-    addProduct(data._id);
+  const addProduct = useContext(CartContext).addProduct;
+  function addToCart(data) {
+    console.log(data._id, data.title)
+    addProduct(data);
   }
 
 
@@ -23,7 +22,7 @@ const BookCard = () => {
           </h5>
           <p>{data.condition}</p>
           <p>${data.listedPrice}</p>
-          <button onClick={addToCart(data._id)}>Add to Cart</button>
+          <button onClick={addToCart(data)}>Add to Cart</button>
         </Card>
       ))}
     </div>
