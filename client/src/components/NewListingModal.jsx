@@ -4,15 +4,20 @@ import { useMutation } from '@apollo/client';
 import { QUERY_BOOKS } from '../graphql/queries';
 import { ADD_BOOK } from '../graphql/mutations';
 
+import { useCurrentUserContext } from "../context/CurrentUser";
+
 //this will eventually need to have access to user data to get the user email
 const NewListingModal = ({isOpen, onClose}) => {
+
+  const {currentUser} = useCurrentUserContext();
+  const userEmail = currentUser.email;
 
   const [bookData, setBookData] = useState({
     title: "",
     isbn: "",
     condition: "",
     listedPrice: "",
-    userEmail: "captainmarvel@example.com",
+    userEmail: userEmail,
     //this email is just for now
   });
 
@@ -74,7 +79,7 @@ const NewListingModal = ({isOpen, onClose}) => {
           value={bookData.listedPrice} onChange={handleChange} />
         </div>
         <button type="submit">List your book!</button>
-        <button onClick={onClose} type="button">Cancel</button>
+        <button onClick={onClose} type="button">Close</button>
       </form>
     </div>
   );

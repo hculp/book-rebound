@@ -1,24 +1,24 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
-} from "react-router-dom";
-import { CookiesProvider } from "react-cookie";
+} from 'react-router-dom';
+import { CookiesProvider } from 'react-cookie';
 
 import { CurrentUserProvider } from "./context";
 import  {CartContextProvider}  from "./components/cartContext";
 
-import App from "./App";
-import Error from "./pages/Error";
-import Landing from "./pages/Landing";
-import Dashboard from "./pages/Dashboard";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-
-import ProtectedRoute from "./components/ProtectedRoute";
+import App from './App';
+import Error from './pages/Error';
+import Landing from './pages/Landing';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import UpdateUser from './pages/UpdateUser';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,11 +34,12 @@ const router = createBrowserRouter(
           </ProtectedRoute>
         }
       />
+      <Route path="updateUser" element={<UpdateUser />} />
     </Route>
   )
 );
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <CookiesProvider>
       <CurrentUserProvider>

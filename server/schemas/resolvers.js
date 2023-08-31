@@ -6,17 +6,17 @@ const resolvers = {
   Query: {
     categories: async () => await Category.find(),
     currentUser: async (parent, { email }) => User.findOne({ email }),
-    books: async (parent, { category, name }) => {
+    books: async (parent, { title, userEmail }) => {
       const params = {};
-      if (category) {
-        params.category = category;
-      }
-      if (name) {
-        params.name = {
-          $regex: name,
+      if (title) {
+        params.title = {
+          $regex: title,
         };
       }
-      return await Book.find(params).populate('category');
+      if (userEmail) {
+        params.userEmail = userEmail;
+      }
+      return await Book.find(params);
     },
     book: async (parent, { _id }) => {
       await Book.findById(_id).populate('category');
