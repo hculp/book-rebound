@@ -52,8 +52,8 @@ export default function ProfileUpdate() {
           postalCode: formState.postalCode,
         },
       });
-      const { user } = mutationResponse.data.updateUser;
-      updateUser(user);
+      const { token, user } = mutationResponse.data.updateUser;
+      updateUser(user, token);
       navigate('/dashboard');
     } catch (e) {
       // eslint-disable-next-line no-console
