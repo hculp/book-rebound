@@ -23,3 +23,16 @@ export const QUERY_BOOKS = gql`
       }
     }
 `;
+
+export const QUERY_BOOKS_FOR_USER = gql`
+query getBooksForUser($userEmail: String!) {
+  books(userEmail: $userEmail) {
+    _id
+    title
+    isbn
+    condition
+    userEmail
+    listedPrice
+  }
+}
+`;
