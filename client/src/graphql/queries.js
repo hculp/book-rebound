@@ -22,4 +22,4 @@ export const QUERY_BOOKS = gql`
         listedPrice
       }
     }
-`
+`;
