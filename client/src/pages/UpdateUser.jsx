@@ -2,7 +2,7 @@ import UserProfile from '../components/UpdateProfile';
 
 function UpdateUser() {
   return (
-    <div>
+    <div className="bg-forestback-50">
       <UserProfile />
     </div>
   );
