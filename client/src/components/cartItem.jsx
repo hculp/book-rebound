@@ -1,37 +1,24 @@
-import { useStoreContext } from "../../utils/GlobalState";
-import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
+import { __InputValue } from "graphql";
+// import { useStoreContext } from "../../utils/GlobalState";
+// import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 
-const CartItem = ({ book }) => {
+const CartItem = ({ book, order }) => {
 
-  const [, dispatch] = useStoreContext();
+  const [ quantity, setQuantity] = useState(book.quantity);
 
-  const removeFromCart = book => {
-    dispatch({
-      type: REMOVE_FROM_CART,
-      _id: book._id
-    });
+  const removeFromCart = ()=> {
     idbPromise('cart', 'delete', { ...book });
-
   };
 
   const onChange = (e) => {
     const value = e.target.value;
     if (value === '0') {
-      dispatch({
-        type: REMOVE_FROM_CART,
-        _id: book._id
-      });
-      idbPromise('cart', 'delete', { ...book });
+     removeFromCart() 
 
     } else {
-      dispatch({
-        type: UPDATE_CART_QUANTITY,
-        _id: book._id,
-        purchaseQuantity: parseInt(value)
-      });
-      idbPromise('cart', 'put', { ...book, quantity: parseInt(value) });
-
+      setQuantity(parseInt(value));
+      idbPromise('cart', 'put', {...book, quantity: parseInt(__InputValue)});
     }
   }
 

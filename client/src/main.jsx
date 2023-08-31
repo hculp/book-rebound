@@ -9,6 +9,7 @@ import {
 import { CookiesProvider } from "react-cookie";
 
 import { CurrentUserProvider } from "./context";
+import  {CartContextProvider}  from "./components/cartContext";
 
 import App from "./App";
 import Error from "./pages/Error";
@@ -41,7 +42,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <CookiesProvider>
       <CurrentUserProvider>
+        <CartContextProvider>
         <RouterProvider router={router} />
+        </CartContextProvider>
       </CurrentUserProvider>
     </CookiesProvider>
   </React.StrictMode>
