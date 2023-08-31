@@ -1,7 +1,8 @@
 import SidebarComponent from '../components/Sidebar';
 import NewListingModal from '../components/NewListingModal';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import UserBooks from '../components/userBooks';
+import SearchComponent from '../components/SearchBar';
 
 function Dashboard() {
   const [isNewListingOpen, setNewListingOpen] = useState(false);
