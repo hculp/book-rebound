@@ -21,17 +21,6 @@ export default function SidebarComponent() {
   return (
     <div className="bg-forestback-50 p-2">
       <div className="bg-forestfront-50 rounded border-black flex flex-auto max-w-lg p-2">
-        {/* {isLoggedIn() ? (
-                <>
-                    <p>My purchases</p>
-                    <p>User settings</p>
-                </>
-            ) : (
-                <>
-                   <p>Nothing</p>
-                </>
-            )} */}
-
         <Sidebar className=" bg-forestback-50 flex flex-auto max-w-lg">
           <Sidebar.Items>
             <Sidebar.ItemGroup>
