@@ -1,24 +1,32 @@
-import React from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import { Card } from 'flowbite-react';
-import { useContext } from 'react';
+import data from '../../../server/seeds/books.json';
 import { CartContext } from './cartContext';
 
-export default function BookCard({ book }) {
- const addProduct = useContext(CartContext).addProduct;
+
+const BookCard = () => {
+
+  const addProduct = useContext(CartContext).addProduct;
   function addToCart() {
    
-    addProduct(book._id);
+    addProduct(data._id);
   }
+
 
   return (
     <div>
-      <Card className="max-w-sm border-black bg-gradient-to-br from-forestfront-50 from-10% to-forestfront-100 via-90%" href="#">
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          <p>Test card title</p>
-        </h5>
-        <p>Test card text</p>
-        <button onClick={addToCart}>Add to Cart</button>
-      </Card>
+      {data.map((data) => (
+        <Card key={data._id} href="#">
+          <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+            {data.title}
+          </h5>
+          <p>{data.condition}</p>
+          <p>${data.listedPrice}</p>
+          <button onClick={addToCart}>Add to Cart</button>
+        </Card>
+      ))}
     </div>
   );
-}
+};
+
+export default BookCard;

@@ -1,22 +1,21 @@
-import { useEffect, useState, useContext, useNavigate  } from 'react';
+import React, { useState, useEffect, useContext, useNavigate } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
-// import {  } from 'react-router-dom';
 import { CartContext } from './cartContext';
 
 const stripePromise = loadStripe('pk_test_51NimDjDT6tfiNPpdPw5gNPITk6ta8X2oBoWNOUuIEFPtGR3gOO0HzXxxKnBE9mw6pUIvNXhcxZD66s28hbmU0hx500MBa74YtM');
 
-const CartItem = ({ item }) => {
+const CartItem = ({ product }) => {
   return (
-    <div key={item._id}>
-      <h3>{item.name}</h3>
-      <p>${item.price}</p>
-      <p>Quantity: {item.quantity}</p>
+    <div key={product._id}>
+      <h3>{product.name}</h3>
+      <p>${product.price}</p>
+      <p>Quantity: {product.quantity}</p>
     </div>
   );
 };
 
 const Cart = () => {
-  const {cartProducts, addProduct, removeProduct, clearCart} = useContext(CartContext);
+  const { cartProducts, addProduct, removeProduct, clearCart } = useContext(CartContext);
 
   useEffect(() => {
     stripePromise.then((stripe) => {
@@ -26,8 +25,8 @@ const Cart = () => {
 
   function calculateTotal() {
     let sum = 0;
-    cartProducts.forEach((productId) => {
-      sum += productId.price * productId.quantity;
+    cartProducts.forEach((product) => {
+      sum += product.price * product.quantity;
     });
     return sum.toFixed(2);
   }
@@ -57,7 +56,7 @@ const Cart = () => {
       {cartProducts.length ? (
         <div>
           {cartProducts.map((book) => (
-            <CartItem key={book._id} item={book} />
+            <CartItem product={book} />
           ))}
           <div className='flex-row space-between'>
             <strong>

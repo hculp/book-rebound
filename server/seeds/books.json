@@ -12,5 +12,12 @@
     "condition": "moderately worn",
     "userEmail": "captainamerica@example.com",
     "listedPrice": 5.00
+  },
+  {
+    "title": "The Oddessey",
+    "isbn": "9780199645214",
+    "condition": "fair condition",
+    "userEmail": "captainamerica@example.com",
+    "listedPrice": 5.25
   }
 ]

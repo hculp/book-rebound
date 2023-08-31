@@ -3,11 +3,13 @@ import {createContext, useEffect, useState} from "react";
 export const CartContext = createContext({});
 
 export function CartContextProvider({children}) {
-  const ls = typeof window !== "undefined" ? window.localStorage : null;
+  const ls = typeof window !== "undefined" ? window.localStorage : undefined;
   const [cartProducts,setCartProducts] = useState([]);
   useEffect(() => {
     if (cartProducts?.length > 0) {
-      ls?.setItem('cart', JSON.stringify(cartProducts));
+      if (ls) {
+        ls.setItem('cart', JSON.stringify(cartProducts));
+      }
     }
   }, [cartProducts]);
   useEffect(() => {
