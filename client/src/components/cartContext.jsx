@@ -3,23 +3,37 @@ import {createContext, useEffect, useState} from "react";
 export const CartContext = createContext({});
 
 export function CartContextProvider({children}) {
-  const ls = typeof window !== "undefined" ? window.localStorage : undefined;
+  // const ls = typeof window !== "undefined" ? window.localStorage : undefined;
   const [cartProducts,setCartProducts] = useState([]);
+
   useEffect(() => {
+    console.log(cartProducts)
     if (cartProducts?.length > 0) {
-      if (ls) {
-        ls.setItem('cart', JSON.stringify(cartProducts));
-      }
+        localStorage.setItem('cart', JSON.stringify(cartProducts));
     }
   }, [cartProducts]);
+
   useEffect(() => {
-    if (ls && ls.getItem('cart')) {
-      setCartProducts(JSON.parse(ls.getItem('cart')));
+    if (localStorage.getItem('cart')!==undefined); {
+      setCartProducts(JSON.parse(localStorage.getItem('cart')));
     }
-  }, []);
-  function addProduct(data) {
-    setCartProducts(prev => [...prev, data._Id]);
+    function storageEventHandler(event) {
+      if (event.key === "cart") {
+          const cartProducts = JSON.parse(event.newValue);
+          setCartProducts(cartProducts);
+      }
   }
+  // Hook up the event handler
+  window.addEventListener("storage", storageEventHandler);
+  return () => {
+      // Remove the handler when the component unmounts
+      window.removeEventListener("storage", storageEventHandler);
+  };
+  }, []);
+
+  function addProduct(data) {
+    setCartProducts([...cartProducts, JSON.stringify(data._Id)]);
+}
   function removeProduct(data) {
     setCartProducts(prev => {
       const pos = prev.indexOf(data._id);
@@ -32,6 +46,7 @@ export function CartContextProvider({children}) {
   function clearCart() {
     setCartProducts([]);
   }
+
   return (
     <CartContext.Provider value={{cartProducts,setCartProducts,addProduct,removeProduct,clearCart}}>
       {children}
