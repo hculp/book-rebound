@@ -1,24 +1,39 @@
-import { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import { useState, useEffect } from 'react';
+import { useMutation, useQuery } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 
 import { UPDATE_USER } from '../graphql/mutations';
 
-import { useCurrentUserContext } from '../context/CurrentUser';
+import {
+  CurrentUserContext,
+  useCurrentUserContext,
+} from '../context/CurrentUser';
+
+import { QUERY_CURRENT_USER } from '../graphql/queries';
 
 export default function ProfileUpdate() {
   const { updateUser } = useCurrentUserContext();
   const navigate = useNavigate();
-  const [formState, setFormState] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    address: '',
-    city: '',
-    state: '',
-    postalCode: '',
+  const { data } = useQuery(QUERY_CURRENT_USER, {
+    variables: {
+      firstName: CurrentUserContext.firstName,
+      lastName: CurrentUserContext.lastName,
+      email: CurrentUserContext.email,
+      password: CurrentUserContext.password,
+      // shippingAddress: {
+      //   address: CurrentUserContext.address,
+      //   city: CurrentUserContext.city,
+      //   state: CurrentUserContext.state,
+      //   postalCode: CurrentUserContext.postalCode,
+      // },
+    },
   });
+
+  const [formState, setFormState] = useState(data?.user || {});
+  // useEffect hook to set user info to the current user's info
+  useEffect(() => {
+    setFormState(data?.user || {});
+  }, [data]);
 
   const [update, { error }] = useMutation(UPDATE_USER);
 
@@ -37,8 +52,8 @@ export default function ProfileUpdate() {
           postalCode: formState.postalCode,
         },
       });
-      const { token, user } = mutationResponse.data.register;
-      updateUser(user, token);
+      const { user } = mutationResponse.data.updateUser;
+      updateUser(user);
       navigate('/dashboard');
     } catch (e) {
       // eslint-disable-next-line no-console
@@ -59,7 +74,7 @@ export default function ProfileUpdate() {
         </div>
       ) : null}
       <form id="registration-form" onSubmit={handleFormSubmit}>
-        <h2>Register</h2>
+        <h2 className="font-bold">Update User Info</h2>
         <label htmlFor="firstName">
           First name:
           <input
@@ -83,7 +98,6 @@ export default function ProfileUpdate() {
         <label htmlFor="email">
           Email:
           <input
-            placeholder="youremail@test.com"
             name="email"
             type="email"
             value={formState.email}
@@ -93,7 +107,6 @@ export default function ProfileUpdate() {
         <label htmlFor="password">
           Password
           <input
-            placeholder="******"
             name="password"
             type="password"
             value={formState.password}
@@ -140,7 +153,9 @@ export default function ProfileUpdate() {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Save</button>
+        <button className='gradientMonochrome="success"' type="submit">
+          Save
+        </button>
       </form>
     </>
   );

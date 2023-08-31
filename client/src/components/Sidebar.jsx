@@ -8,8 +8,8 @@ export default function SidebarComponent() {
   const { isLoggedIn, logoutUser } = useCurrentUserContext();
 
   return (
-    <div className="bg-forestback-50">
-      <div className="bg-forestfront-50 rounded border-black flex flex-auto max-w-md">
+    <div className="bg-forestback-50 p-2">
+      <div className="bg-forestfront-50 rounded border-black flex flex-auto max-w-md p-2">
         {/* {isLoggedIn() ? (
                 <>
                     <p>My purchases</p>
@@ -28,7 +28,7 @@ export default function SidebarComponent() {
                 <p>My purchases</p>
               </Sidebar.Item>
               <Sidebar.Item className="bg-forestfront-50 hover:bg-forestback-50">
-                <Link to="/userProfile">User Profile</Link>
+                <Link to="/UpdateUser">User Profile</Link>
               </Sidebar.Item>
             </Sidebar.ItemGroup>
           </Sidebar.Items>
