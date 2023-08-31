@@ -61,8 +61,8 @@ export default function Registration() {
         </div>
       ) : null}
 
-      <form id="registration-form" onSubmit={handleFormSubmit}>
-        <h2>Register</h2>
+      <form id="registration-form" onSubmit={handleFormSubmit} className="bg-forestfront-50 max-w-lg mx-auto px-3 rounded flex flex-col">
+        <h2 className="text-center text-xl">Register</h2>
         <label htmlFor="firstName">
           First name:
           <input
@@ -111,6 +111,7 @@ export default function Registration() {
             type="address"
             value={formState.address}
             onChange={handleChange}
+            className="p-2"
           />
         </label>
         <label htmlFor="city">
@@ -121,6 +122,7 @@ export default function Registration() {
             type="city"
             value={formState.city}
             onChange={handleChange}
+            className="p-2"
           />
         </label>
         <label htmlFor="postalCode">
@@ -131,6 +133,7 @@ export default function Registration() {
             type="postalCode"
             value={formState.postalCode}
             onChange={handleChange}
+            className="p-2"
           />
         </label>
         <label htmlFor="state">
@@ -141,11 +144,12 @@ export default function Registration() {
             type="state"
             value={formState.state}
             onChange={handleChange}
+            className="p-2"
           />
         </label>
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="border-0 border-solid rounded-md hover:text-cyan-500 hover:underline">Sign Up</button>
         <p>
-          Already have an account? Login <Link to="/register">here</Link>
+          Already have an account? Login <Link to="/register" className="text-blue-400 hover:text-cyan-500 underline">here</Link>
         </p>
       </form>
     </>

@@ -22,7 +22,7 @@ export const QUERY_BOOKS = gql`
         listedPrice
       }
     }
-`
+`;
 
 export const QUERY_BOOKS_FOR_USER = gql`
 query getBooksForUser($userEmail: String!) {
@@ -35,4 +35,4 @@ query getBooksForUser($userEmail: String!) {
     listedPrice
   }
 }
-`
+`;
