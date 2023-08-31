@@ -2,7 +2,9 @@ import LoginForm from "../components/LoginForm";
 
 function Login() {
   return (
-    <LoginForm />
+    <div className="bg-forestback-50 h-screen">
+      <LoginForm />
+    </div>
   )
 }
 
