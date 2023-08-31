@@ -1,7 +1,7 @@
 import SidebarComponent from '../components/Sidebar';
 import NewListingModal from '../components/NewListingModal';
 import React, { useState } from 'react';
-
+import Cart from '../components/cart';
 function Dashboard() {
     //
   //
@@ -22,6 +22,7 @@ function Dashboard() {
       <SidebarComponent />
       <button onClick={openNewListingModal}>List New Book</button>
       <NewListingModal isOpen={isNewListingOpen} onClose={closeNewListingModal} />
+      <Cart />
     </div>
   )
 }

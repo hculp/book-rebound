@@ -1,6 +1,6 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState, useContext, useNavigate  } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
-import { useNavigate } from 'react-router-dom';
+// import {  } from 'react-router-dom';
 import { CartContext } from './cartContext';
 
 const stripePromise = loadStripe('pk_test_51NimDjDT6tfiNPpdPw5gNPITk6ta8X2oBoWNOUuIEFPtGR3gOO0HzXxxKnBE9mw6pUIvNXhcxZD66s28hbmU0hx500MBa74YtM');
@@ -44,6 +44,7 @@ const Cart = () => {
     });
 
     window.location.href = session.url;
+    clearCart()
   }
 
   function continueShopping() {
