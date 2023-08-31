@@ -1,5 +1,5 @@
 import SidebarComponent from '../components/Sidebar';
-import UserBooks from '../components/userBooks';
+import UserBooks from '../components/UserBooks';
 import SearchComponent from '../components/SearchBar';
 
 function Dashboard() {
