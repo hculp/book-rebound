@@ -17,12 +17,12 @@ export function CartContextProvider({children}) {
       setCartProducts(JSON.parse(ls.getItem('cart')));
     }
   }, []);
-  function addProduct(productId) {
-    setCartProducts(prev => [...prev,productId]);
+  function addProduct(data) {
+    setCartProducts(prev => [...prev, data._Id]);
   }
-  function removeProduct(productId) {
+  function removeProduct(data) {
     setCartProducts(prev => {
-      const pos = prev.indexOf(productId);
+      const pos = prev.indexOf(data._id);
       if (pos !== -1) {
         return prev.filter((value,index) => index !== pos);
       }

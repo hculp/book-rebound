@@ -1,5 +1,6 @@
 [
   {
+    "_id": "1",
     "title": "The Martian",
     "isbn": "9780593357132",
     "condition": "heavily worn",
@@ -7,6 +8,7 @@
     "listedPrice": 3.00
   },
   {
+    "_id": "2",
     "title": "The Iliad",
     "isbn": "9780199645213",
     "condition": "moderately worn",
@@ -14,6 +16,7 @@
     "listedPrice": 5.00
   },
   {
+    "_id": "3",
     "title": "The Oddessey",
     "isbn": "9780199645214",
     "condition": "fair condition",
