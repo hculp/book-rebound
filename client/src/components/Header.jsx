@@ -12,19 +12,19 @@ function Header() {
       <nav className="flex flex-row justify-end p-5">
         {isLoggedIn() ? (
           <>
-            <Link className="mr-5" to="/dashboard">
+            <Link className="hover:underline pr-5" to="/dashboard">
               Dashboard
             </Link>
-            <button type="button" onClick={logoutUser}>
+            <button className="hover:underline" type="button" onClick={logoutUser}>
               Logout
             </button>
           </>
         ) : (
           <>
-            <Link className="pr-5" to="/login">
+            <Link className="hover:underline pr-5" to="/login">
               Login
             </Link>
-            <Link to="/register">Sign Up</Link>
+            <Link className="hover:underline" to="/register">Sign Up</Link>
           </>
         )}
       </nav>
