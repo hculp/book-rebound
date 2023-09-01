@@ -95,8 +95,8 @@ const NewListingModal = ({ isOpen, onClose }) => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">List your book!</button>
-        <button onClick={onClose} type="button">
+        <button className="bg-forestfront-50 hover:bg-forestback-50 m-1 p-1" type="submit">List your book!</button>
+        <button className='bg-forestfront-50 hover:bg-forestback-50 m-1 p-1' onClick={onClose} type="button">
           Close
         </button>
       </form>

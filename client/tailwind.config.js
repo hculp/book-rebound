@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        
+      },
       colors: {
         forestback: {
           50: '#A2AC94',
