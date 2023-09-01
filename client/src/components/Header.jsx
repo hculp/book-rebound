@@ -5,11 +5,11 @@ function Header() {
   const { isLoggedIn, logoutUser } = useCurrentUserContext();
 
   return (
-    <div className="grid grid-cols-2 border-2 border-black">
+    <div className="grid grid-cols-2 border-2 border-black bg-gradient-to-r from-white to- bg-forestback-100">
       <Link to="/" className="text-5xl ml-2 justify-start">
         Book Rebound
       </Link>
-      <nav className="flex flex-row justify-end p-5 bg-forestback-100">
+      <nav className="flex flex-row justify-end p-5">
         {isLoggedIn() ? (
           <>
             <Link className="mr-5" to="/dashboard">
