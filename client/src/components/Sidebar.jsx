@@ -5,6 +5,7 @@ import { useCurrentUserContext } from '../context/CurrentUser';
 import { Sidebar } from 'flowbite-react';
 import { useState } from 'react';
 import NewListingModal from './NewListingModal';
+import Cart from '../components/cart';
 
 export default function SidebarComponent() {
   const { isLoggedIn, logoutUser } = useCurrentUserContext();
@@ -32,6 +33,9 @@ export default function SidebarComponent() {
               </Sidebar.Item>
               <Sidebar.Item className="bg-forestfront-50 hover:bg-forestback-50">
                 <button onClick={openNewListingModal}>List New Book</button>
+              </Sidebar.Item>
+              <Sidebar.Item className="bg-forestfront-50 hover:bg-forestback-50">
+                <Cart />
               </Sidebar.Item>
             </Sidebar.ItemGroup>
           </Sidebar.Items>
